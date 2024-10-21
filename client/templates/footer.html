@@ -1,0 +1,24 @@
+{% if current_user.is_authenticated %}
+  <div class="container footer" >
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+          <li class="nav-item"><a href="{{ url_for('bp_views.home') }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="{{ url_for('bp_auth.logout') }}" class="nav-link px-2 text-body-secondary">Logout</a></li>
+        </ul>
+        <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+      </footer>
+    </div>
+{% else %}
+  <div class="container footer" >
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+        <li class="nav-item"><a href="{{ url_for('bp_views.home') }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="{{ url_for('bp_auth.login') }}" class="nav-link px-2 text-body-secondary">Login</a></li>
+        <li class="nav-item"><a href="{{ url_for('bp_auth.sign') }}" class="nav-link px-2 text-body-secondary">Sign Up</a></li>
+      </ul>
+      <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+    </footer>
+  </div>
+{% endif %}

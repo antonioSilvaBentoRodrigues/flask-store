@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+
+{% block content %}
+<div class="container-title">
+    <h1>Login</h1>
+    <hr>
+</div>
+<form method="POST">
+    <div class="container-login">
+        <div class="input-group mb-2">
+            <input name="email" type="text" class="form-control" placeholder="Email" aria-label="Email">
+        </div>
+        <div class="input-group mb-2">
+            <input name="password" type="password" class="form-control" placeholder="password" show="*">
+        </div>
+        <p class="register-text">Don't have an account? Sign Up <a href="{{ url_for('bp_auth.sign') }}">here</a></p>
+        <div class="input-group mb2">
+            <button type="submit" class="btn btn-outline-primary">Login</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% include 'footer.html' %}

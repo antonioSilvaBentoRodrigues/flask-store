@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SignUp
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-title">
+    <h1>Sign Up</h1>
+    <hr>
+</div>
+<form method="POST">
+<div class="container-login">
+    <div class="input-group mb-2">
+        <span class="input-group-text">First and last name</span>
+        <input name="first_name" type="text" aria-label="First name" class="form-control">
+        <input name="last_name" type="text" aria-label="Last name" class="form-control">
+    </div>
+    <div class="input-group mb-2">
+        <input name="email" type="text" class="form-control" placeholder="Email" aria-label="Email">
+    </div>
+    <div class="input-group mb-2">
+        <input name="password" type="password" class="form-control" placeholder="password" show="*">
+    </div>
+    <div class="input-group mb-2">
+        <input name="confirm_password" type="password" class="form-control" placeholder="password" show="*">
+    </div>
+    <p class="register-text">Don't have an account? Login in <a href="{{ url_for('bp_auth.login') }}">here</a></p>
+    <div class="input-group mb2">
+        <button type="submit" class="btn btn-outline-primary">Sign Up</button>
+    </div>
+</div>
+</form>
+{% endblock %}
+
+{% include 'footer.html' %}

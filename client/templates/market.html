@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Model</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Available</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+       {% if allProducts %}
+            {% for product in allProducts %}
+             
+                <tr>
+                    <th id="product_id">{{ product.id }}</th>
+                    <td>{{ product.brand }}</td>
+                    <td>{{ product.model }}</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="{{ product.description }}">
+                        Information
+                      </button>
+                    </td>
+                    <td>{{ product.price }}€</td>
+                    <td>{{ product.inventory }}</td>
+                    <td>
+                        <form method="POST" href="{{ url_for('bp_views.add_product') }}">
+                          <button onclick="addToCart()" data-product-id="{{ product.id }}" name="product_id" type="submit" value="{{ product.id }}" class="btn btn-outline-success">Add to cart</button>
+                        </form>
+                      </td> 
+                    </form>
+                    </tr>
+
+            {% endfor %}
+        {% endif %}
+    </tbody>
+  </table>
+
+  {% include 'footer.html' %}
+
+{% endblock %}
+
+
